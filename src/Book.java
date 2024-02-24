@@ -1,9 +1,6 @@
-/* 
-*
-  The book class holds the implementation for each book that will be added to the overall book collection. The Collection class will harbor a list of books.
-* 
-*/
 
+// The book class is used briefly, mostly for its printed output methods
+// and as a reference for what a Book should hold.
 public class Book {
     private String title;
     private String author;
@@ -21,79 +18,23 @@ public class Book {
         this.numberOfCopies = numberOfCopies;
     }
 
-    // title
-    public String getTitle() {
-        return title;
-    }
+    /*
+    toCSVString() is used to convert book data into something that can easily be written to
+    a csv file, with its data separated by commas
 
-    public void setTitle(String title) {
-        if (title.length() > 0) {
-            this.title = title;
-        }
-    }
-
-    // author
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        if (author.length() > 0) {
-            this.author = author;
-        }
-    }
-
-    // ISBN
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        int lengthToCheck = ISBN.length();
-        if (lengthToCheck == 10 || lengthToCheck == 13) {
-            this.ISBN = ISBN;
-        }
-    }
-
-    // genre
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        if (genre.length() > 0) {
-            this.genre = genre;
-        }
-
-    }
-
-    // printType
-    public String getPrintType() {
-        return printType;
-    }
-
-    public void setPrintType(String printType) {
-        if (printType.length() > 0) {
-            this.printType = printType;
-        }
-    }
-
-    // numberOfCopies
-    public int getNumberOfCopies() {
-        return numberOfCopies;
-    }
-
-    public void setNumberOfCopies(int numberOfCopies) {
-        if (numberOfCopies >= 0) {
-            this.numberOfCopies = numberOfCopies;
-        }
-    }
-
+    Input: None
+    Output: A String formatted for csv files
+     */
     public String toCSVString() {
         return title + "," + author + "," + ISBN + "," + genre + "," + printType + "," + numberOfCopies + "\n";
     }
 
-    // toString
+    /*
+    toString() is used for debugging and making sure that the book object is initialized correctly
+
+    Inputs: None
+    Outputs: Book data formatted for easy reading
+    */
     public String toString() {
         return "Title: " + title + "\nAuthor: " + author + "\nISBN: " + ISBN + "\nGenre: " + genre + "\nPrint Type: "
                 + printType + "\nNumber of Copies: " + numberOfCopies;
