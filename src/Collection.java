@@ -34,7 +34,6 @@ public class Collection {
     public static void saveBookToCSV(Book book) {
         // define a new File to write to
         File outFile = new File(dataPath);
-        System.out.println(outFile.getAbsolutePath());
         // define an output string to organize book info
         String data = book.toCSVString();
 
@@ -82,7 +81,7 @@ public class Collection {
         File outFile = new File(dataPath);
 
         try {
-            Files.write(outFile.toPath(), books, StandardOpenOption.CREATE);
+            Files.write(outFile.toPath(), books);
             System.out.println("File successfully rewritten! Returning to menu.");
         } catch(IOException e) {
             System.out.println("Error writing collection to file. " + e + "\nReturning to menu.");
@@ -92,10 +91,7 @@ public class Collection {
     public static List<String> getCollection() {
         // define a path to the data file
         File inFile = new File(dataPath);
-
-        // create an ArrayList of type Book
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        List<String> csvData = new ArrayList<String>();
+        List<String> csvData = new ArrayList<>();
 
         // try
         try {
